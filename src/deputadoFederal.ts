@@ -3,7 +3,7 @@ import { Esfera, Poder } from './Enum'
 
 class DeputadoFederal extends Politico {
 
-    bancada: string;
+   private bancada: string;
 
     constructor(
         nome: string,
@@ -35,39 +35,44 @@ criarCPI(nomeCPI: string, data: string, local: string): string {
 
 votarPPA(nomePPA: string, aprovado:boolean): string {
     if(aprovado) {
-        return `O deputado ${this.nome} aprovou a ${nomePPA}`
+        return `O deputado ${this.getNome()} aprovou a ${nomePPA}`
     }
 
     else {
-        return `O deputado ${this.nome} não aprovou a ${nomePPA}`
+        return `O deputado ${this.getNome()} não aprovou a ${nomePPA}`
     }
 }
 
 
 votarLDO(nomeLDO: string, aprovado:boolean): string {
     if(aprovado) {
-        return `O deputado ${this.nome} aprovou a ${nomeLDO}`
+        return `O deputado ${this.getNome()} aprovou a ${nomeLDO}`
     }
 
     else {
-        return `O deputado ${this.nome} não aprovou a ${nomeLDO}`
+        return `O deputado ${this.getNome()} não aprovou a ${nomeLDO}`
     }
 }
 
 votarLOA(nomeLOA: string, aprovado:boolean): string {
     if(aprovado) {
-        return `O deputado ${this.nome} aprovou a ${nomeLOA}`
+        return `O deputado ${this.getNome()} aprovou a ${nomeLOA}`
     }
 
     else {
-        return `O deputado ${this.nome} não aprovou a ${nomeLOA}`
+        return `O deputado Federal ${this.getNome()} não aprovou a ${nomeLOA}`
     }
 }
 proporLeiComplementar(leiComplementar:string): string {
-   return `O deputado ${this.nome} propôs a lei complementar ${leiComplementar}.`
+   return `O deputado Federal ${this.getNome()} propôs a lei complementar ${leiComplementar}.`
 }
 
 exercerMandato(): string {
-     return `O Deputado Federal exerce seu mandato por meio da elaboração de leis sobre o Código Penal, o Código Tributário e as leis trabalhistas, além da fiscalização do Presidente da República.`
+     return `O Deputado Federal ${this.getNome()} exerce seu mandato por meio da elaboração de leis sobre o Código Penal, o Código Tributário e as leis trabalhistas, além da fiscalização do Presidente da República.`
 }
+
+
+ getBancada(): string {
+        return this.bancada;
+    }
 }

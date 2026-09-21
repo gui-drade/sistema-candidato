@@ -2,7 +2,7 @@ import {Politico} from './Politico'
 import {Esfera,Poder} from './Enum'
 
 class Presidente extends Politico {
-    ministros:string[];
+   private ministros:string[];
 
 
 
@@ -45,7 +45,7 @@ class Presidente extends Politico {
    
    }
    representarPais(evento:string): string {
-    return  `O presidente ${this.nome} foi representar o pais em: ` + evento
+    return  `O presidente ${this.getNome()} foi representar o pais em: ` + evento
    }
 
    elaborarPPA(PPA: string): string {
@@ -59,6 +59,10 @@ class Presidente extends Politico {
     elaborarLOA(LOA: string): string {
     return `O presidente elaborou um LOA ${LOA}`
    }
+
+    getMinistros(): string[] {
+        return [...this.ministros];
+    }
 
 
 

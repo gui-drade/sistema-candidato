@@ -2,8 +2,8 @@ import {Politico} from './Politico'
 import {Esfera,Poder} from './Enum'
 
 class Governador extends Politico {
-   secretarios: string[];
-   nomeEstado: string;
+   private secretarios: string[];
+   private nomeEstado: string;
 
 
    constructor(nome: string, partido:string, esfera:Esfera,remuneracao: number,poder: Poder, projetos:string[],nomeTrabalho: string, enderecoTrabalho: string, secretarios: string[], nomeEstado: string) {
@@ -57,4 +57,12 @@ exercerMandato(): string {
 - Decretar estado de calamidade;
 - Enviar PEC à Assembleia Legislativa.`
 }
+
+ getSecretarios(): string[] {
+        return [...this.secretarios];
+    }
+
+    getNomeEstado(): string {
+        return this.nomeEstado;
+    }
    }

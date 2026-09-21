@@ -3,8 +3,8 @@ import {Esfera,Poder} from './Enum'
 
 
 class DeputadoEstadual extends Politico {
-    public nomeEstado: string;
-    public comissoes:string[];
+    private nomeEstado: string;
+    private comissoes:string[];
 
     constructor(nome: string, partido:string, esfera:Esfera,remuneracao: number,poder: Poder, projetos:string[],nomeTrabalho: string, enderecoTrabalho: string,nomeEstado:string,comissoes:string[]){
         super(nome,partido,esfera,remuneracao,poder,projetos,nomeTrabalho,enderecoTrabalho)
@@ -24,33 +24,45 @@ class DeputadoEstadual extends Politico {
 
     votarPPA(nomePPA: string, aprovado: boolean): string {
     if (aprovado) {
-        return `O Deputado Estadual ${this.nome} aprovou o PPA estadual ${nomePPA}.`
+        return `O Deputado Estadual ${this.getNome()} aprovou o PPA estadual ${nomePPA}.`
     } else {
-        return `O Deputado Estadual ${this.nome} não aprovou o PPA estadual ${nomePPA}.`
+        return `O Deputado Estadual ${this.getNome()} não aprovou o PPA estadual ${nomePPA}.`
     }
 }
 
 votarLDO(nomeLDO: string, aprovado: boolean): string {
     if (aprovado) {
-        return `O Deputado Estadual ${this.nome} aprovou a LDO estadual ${nomeLDO}.`
+        return `O Deputado Estadual ${this.getNome()} aprovou a LDO estadual ${nomeLDO}.`
     } else {
-        return `O Deputado Estadual ${this.nome} não aprovou a LDO estadual ${nomeLDO}.`
+        return `O Deputado Estadual ${this.getNome()} não aprovou a LDO estadual ${nomeLDO}.`
     }
 }
 
 votarLOA(nomeLOA: string, aprovado: boolean): string {
     if (aprovado) {
-        return `O Deputado Estadual ${this.nome} aprovou a LOA estadual ${nomeLOA}.`
+        return `O Deputado Estadual ${this.getNome()} aprovou a LOA estadual ${nomeLOA}.`
     } else {
-        return `O Deputado Estadual ${this.nome} não aprovou a LOA estadual ${nomeLOA}.`
+        return `O Deputado Estadual ${this.getNome()} não aprovou a LOA estadual ${nomeLOA}.`
     }
 }
 
-proporEmendaConstitucional(EmendaConstitucional:string): string {
-     return `O Deputado ${this.nome} propôs a emenda constitucional ${EmendaConstitucional}`
+proporEmendaConstitucional(emendaConstitucional:string): string {
+     return `O Deputado ${this.getNome()} propôs a emenda constitucional ${emendaConstitucional}`
 }
 
 criarCPI(nomeCPI: string, data: string, local: string): string {
     return `A CPI ${nomeCPI} foi criada em ${data}, no local ${local}, pelo Deputado Estadual.`
 }
+
+getNomeEstado(): string {
+        return this.nomeEstado;
+    }
+
+    getComissoes(): string[] {
+        return [...this.comissoes];
+    }
+
+    adicionarComissao(comissao: string): void {
+        this.comissoes.push(comissao);
+    }
 }

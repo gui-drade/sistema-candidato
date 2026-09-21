@@ -2,7 +2,7 @@ import {Politico} from './Politico'
 import {Esfera,Poder} from './Enum'
 
 
-class DeputadoEstadual extends Politico {
+ export class DeputadoEstadual extends Politico {
     private nomeEstado: string;
     private comissoes:string[];
 

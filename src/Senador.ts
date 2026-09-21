@@ -2,7 +2,7 @@ import {Politico} from './Politico'
 import {Esfera,Poder} from './Enum'
 
 
-class Senador extends Politico {
+export class Senador extends Politico {
     private nomeEstado: string;
     private anoEleito:number;
 

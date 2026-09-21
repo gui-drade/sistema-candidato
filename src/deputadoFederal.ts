@@ -1,7 +1,7 @@
 import { Politico } from './Politico'
 import { Esfera, Poder } from './Enum'
 
-class DeputadoFederal extends Politico {
+ export class DeputadoFederal extends Politico {
 
    private bancada: string;
 

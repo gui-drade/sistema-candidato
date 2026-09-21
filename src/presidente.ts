@@ -1,7 +1,7 @@
 import {Politico} from './Politico'
 import {Esfera,Poder} from './Enum'
 
-class Presidente extends Politico {
+ export class Presidente extends Politico {
    private ministros:string[];
 
 
